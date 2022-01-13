@@ -12,5 +12,10 @@
   * [单例模式](design-pattern/singleton.md)
 * [数据结构和算法](algorithm.md)
   * [复杂度分析](algorithm/001.md)
-
+  * [数组](algorithm/array.md)
+  * [链表](algorithm/linkedlist.md)
+  * [栈](algorithm/stack.md)
+* [Java 8](java8.md)
+  * [Lambda 表达式](java8/lambda.md)
 * [外链](wai-lian.md)
+

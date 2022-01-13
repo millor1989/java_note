@@ -12,6 +12,8 @@ Maven使用`pom.xml`定义项目内容，并使用预设的目录结构；在Mav
 
 
 
+`mvn dependency:tree`
+
 
 
 - 页面出现乱码，可以在pom文件中设置属性，统一使用UTF-8编码（也能解决maven build时，提示 `xxxxx 编码GBK的不可映射字符` 的警告）：
