@@ -17,5 +17,13 @@
   * [栈](algorithm/stack.md)
 * [Java 8](java8.md)
   * [Lambda 表达式](java8/lambda.md)
+  * [函数式接口](java8/functional-interface.md)
+  * [引用](java8/reference.md)
+  * [HashMap](java8/hashmap.md)
+  * [Stream](java8/stream.md)
+  * [Optional](java8/optional.md)
+  * [默认方法](java8/default-method.md)
+  * [日期和时间](java8/date-time.md)
+  * 注解增强
 * [外链](wai-lian.md)
 

@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../wai-lian.md" />
+    <link rel="next" href="functional-interface.html" />
     
     
     <link rel="prev" href="../java8.html" />
@@ -339,6 +339,110 @@
             
         </li>
     
+        <li class="chapter " data-level="1.8.2" data-path="functional-interface.html">
+            
+                <a href="functional-interface.html">
+            
+                    
+                    函数式接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="reference.html">
+            
+                <a href="reference.html">
+            
+                    
+                    引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="hashmap.html">
+            
+                <a href="hashmap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="stream.html">
+            
+                <a href="stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="optional.html">
+            
+                <a href="optional.html">
+            
+                    
+                    Optional
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="default-method.html">
+            
+                <a href="default-method.html">
+            
+                    
+                    默认方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="date-time.html">
+            
+                <a href="date-time.html">
+            
+                    
+                    日期和时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" >
+            
+                <span>
+            
+                    
+                    注解增强
+            
+                </span>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -428,6 +532,7 @@
 </code></pre>
 <h4 id="4&#x3001;&#x5BF9;&#x6BD4;&#x5E38;&#x89C4;&#x65B9;&#x6CD5;&#x548C;-lambda-&#x8868;&#x8FBE;&#x5F0F;">4&#x3001;&#x5BF9;&#x6BD4;&#x5E38;&#x89C4;&#x65B9;&#x6CD5;&#x548C; Lambda &#x8868;&#x8FBE;&#x5F0F;</h4>
 <p>&#x9700;&#x6C42;&#xFF0C;&#x83B7;&#x53D6;&#x516C;&#x53F8;&#x5458;&#x5DE5;&#x4E2D;&#x5E74;&#x9F84;&#x5927;&#x4E8E; 30 &#x5C81;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5458;&#x5DE5;&#x5B9E;&#x4F53;&#x7C7B;&#xFF1A;</p>
 <pre><code class="lang-java"><span class="hljs-meta">@Data</span>
 <span class="hljs-meta">@Builder</span>
 <span class="hljs-meta">@ToString</span>
@@ -439,6 +544,202 @@
     <span class="hljs-keyword">private</span> Integer age;
     <span class="hljs-keyword">private</span> Double salary;
 }
+</code></pre>
+<p>&#x521B;&#x5EFA;&#x5458;&#x5DE5;&#x96C6;&#x5408;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">protected</span> List&lt;Employee&gt; employees = Arrays.asList(
+    <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;&#x5F20;&#x4E09;&quot;</span>, <span class="hljs-number">18</span>, <span class="hljs-number">9999.99</span>),
+    <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;&#x674E;&#x56DB;&quot;</span>, <span class="hljs-number">38</span>, <span class="hljs-number">5555.55</span>),
+    <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;&#x738B;&#x4E94;&quot;</span>, <span class="hljs-number">60</span>, <span class="hljs-number">6666.66</span>),
+    <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;&#x8D75;&#x516D;&quot;</span>, <span class="hljs-number">16</span>, <span class="hljs-number">7777.77</span>),
+    <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;&#x7530;&#x4E03;&quot;</span>, <span class="hljs-number">18</span>, <span class="hljs-number">3333.33</span>)
+);
+</code></pre>
+<h5 id="41&#x3001;&#x5E38;&#x89C4;&#x904D;&#x5386;&#x96C6;&#x5408;">4.1&#x3001;&#x5E38;&#x89C4;&#x904D;&#x5386;&#x96C6;&#x5408;</h5>
+<p>&#x7528; Java &#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x904D;&#x5386;&#x96C6;&#x5408;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x9700;&#x6C42;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Employee&gt; <span class="hljs-title">filterEmployeesByAge</span><span class="hljs-params">(List&lt;Employee&gt; list)</span></span>{
+    List&lt;Employee&gt; employees = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    <span class="hljs-keyword">for</span>(Employee e : list){
+        <span class="hljs-keyword">if</span>(e.getAge() &gt;= <span class="hljs-number">30</span>){
+            employees.add(e);
+        }
+    }
+    <span class="hljs-keyword">return</span> employees;
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x9700;&#x6C42;&#x53D8;&#x5316;&#x2014;&#x2014;&#x83B7;&#x53D6;&#x5DE5;&#x8D44;&#x5927;&#x4E8E;&#x7B49;&#x4E8E; 5000 &#x7684;&#x5458;&#x5DE5;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x904D;&#x5386;&#x96C6;&#x5408;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Employee&gt; <span class="hljs-title">filterEmployeesBySalary</span><span class="hljs-params">(List&lt;Employee&gt; list)</span></span>{
+    List&lt;Employee&gt; employees = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    <span class="hljs-keyword">for</span>(Employee e : list){
+        <span class="hljs-keyword">if</span>(e.getSalary() &gt;= <span class="hljs-number">5000</span>){
+            employees.add(e);
+        }
+    }
+    <span class="hljs-keyword">return</span> employees;
+}
+</code></pre>
+<p>&#x5BF9;&#x6BD4;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x5B9E;&#x53EA;&#x6709; for &#x5FAA;&#x73AF;&#x4E2D;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x4E0D;&#x540C;&#x800C;&#x5DF2;&#xFF01;</p>
+<h5 id="42&#x3001;&#x4F7F;&#x7528;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x4F18;&#x5316;">4.2&#x3001;&#x4F7F;&#x7528;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x4F18;&#x5316;</h5>
+<p>&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x63A5;&#x53E3; <code>MyPredicate</code>&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MyPredicate</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-comment">/**
+    * &#x5BF9;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684; T &#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;
+    * &#x7B26;&#x5408;&#x89C4;&#x5219;&#x8FD4;&#x56DE; true&#xFF0C;&#x4E0D;&#x7B26;&#x5408;&#x89C4;&#x5219;&#x8FD4;&#x56DE; false
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">filter</span><span class="hljs-params">(T t)</span></span>;
+}
+</code></pre>
+<p>&#x521B;&#x5EFA; <code>MyPredicate</code> &#x7684;&#x5B9E;&#x73B0;&#x7C7B; <code>FilterEmployeeByAge</code> &#x6765;&#x8FC7;&#x6EE4;&#x5E74;&#x9F84;&#x5927;&#x4E8E;&#x6216;&#x8005;&#x7B49;&#x4E8E; 30 &#x7684;&#x5458;&#x5DE5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FilterEmployeeByAge</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MyPredicate</span>&lt;<span class="hljs-title">Employee</span>&gt; </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">filter</span><span class="hljs-params">(Employee employee)</span> </span>{
+        <span class="hljs-keyword">return</span> employee.getAge() &gt;= <span class="hljs-number">30</span>;
+    }
+}
+</code></pre>
+<p>&#x6B64;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x8FC7;&#x6EE4;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x4F18;&#x5316;&#x65B9;&#x5F0F;&#x4E00;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Employee&gt; <span class="hljs-title">filterEmployee</span><span class="hljs-params">(List&lt;Employee&gt; list, MyPredicate&lt;Employee&gt; myPredicate)</span> </span>{
+    List&lt;Employee&gt; employees = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    <span class="hljs-keyword">for</span>(Employee e : list){
+        <span class="hljs-keyword">if</span>(myPredicate.filter(e)){
+            employees.add(e);
+        }
+    }
+    <span class="hljs-keyword">return</span> employees;
+}
+</code></pre>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x5F53;&#x9700;&#x8981;&#x8FC7;&#x6EE4;&#x5DE5;&#x8D44;&#x5927;&#x4E8E;&#x6216;&#x8005;&#x7B49;&#x4E8E; 5000 &#x7684;&#x5458;&#x5DE5;&#x662F;&#xFF0C;&#x53EA;&#x7528;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0; <code>MyPredicate</code> &#x63A5;&#x53E3;&#x7684; <code>FilterEmployeeBySalary</code> &#x7C7B;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FilterEmployeeBySalary</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MyPredicate</span>&lt;<span class="hljs-title">Employee</span>&gt;</span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">filter</span><span class="hljs-params">(Employee employee)</span> </span>{
+        <span class="hljs-keyword">return</span> employee.getSalary() &gt;= <span class="hljs-number">5000</span>;
+    }
+}
+</code></pre>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x8FC7;&#x6EE4;&#x6761;&#x4EF6;&#x53D8;&#x66F4;&#xFF0C;&#x53EA;&#x9700;&#x521B;&#x5EFA;&#x65B0;&#x7684; <code>MyPredicate</code> &#x5B9E;&#x73B0;&#x7C7B;&#x5373;&#x53EF;&#x3002;</p>
+<h5 id="43&#x3001;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;">4.3&#x3001;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;</h5>
+<p>&#x65E2;&#x7136; <code>MyPredicate</code> &#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x5BF9;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x7B80;&#x5316;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;Employee&gt; employeeList = filterEmployee(
+    employees,
+    <span class="hljs-keyword">new</span> MyPredicate&lt;Employee&gt;() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">filter</span><span class="hljs-params">(Employee employee)</span> </span>{
+            <span class="hljs-keyword">return</span> employee.getSalary() &gt;= <span class="hljs-number">5000</span>;
+        }
+    }
+);
+<span class="hljs-keyword">for</span> (Employee e : employeeList){
+    System.out.println(e);
+}
+</code></pre>
+<h5 id="44&#x3001;lambda-&#x8868;&#x8FBE;&#x5F0F;">4.4&#x3001;Lambda &#x8868;&#x8FBE;&#x5F0F;</h5>
+<p>&#x8FDB;&#x4E00;&#x6B65;&#x4F7F;&#x7528; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;&#x7B80;&#x5316;</p>
+<pre><code class="lang-java">filterEmployee(employees, (e) -&gt; e.getAge() &gt;= <span class="hljs-number">30</span>).forEach(System.out::println);
+</code></pre>
+<p>&#x4F7F;&#x7528; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x5458;&#x5DE5;&#x4FE1;&#x606F;&#x7684;&#x8FC7;&#x6EE4;&#x548C;&#x8F93;&#x51FA;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x9700;&#x6C42;&#x53D8;&#x66F4;&#xFF0C;&#x53EA;&#x9700;&#x6539;&#x53D8; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x5373;&#x53EF;&#x3002;</p>
+<h5 id="45&#x3001;stream-api">4.5&#x3001;Stream API</h5>
+<p>&#x4F7F;&#x7528; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7ED3;&#x5408; Stream API&#xFF0C;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x5BF9;&#x96C6;&#x5408;&#x7684;&#x5404;&#x79CD;&#x8FC7;&#x6EE4;&#x3002;</p>
+<pre><code class="lang-java">employees.stream().filter((e) -&gt; e.getSalary() &gt;= <span class="hljs-number">5000</span>).forEach(System.out::println);
+</code></pre>
+<h4 id="5&#x3001;&#x533F;&#x540D;&#x7C7B;&#x5230;-lambda-&#x8868;&#x8FBE;&#x5F0F;">5&#x3001;&#x533F;&#x540D;&#x7C7B;&#x5230; Lambda &#x8868;&#x8FBE;&#x5F0F;</h4>
+<ul>
+<li><p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B; &#x5230; Lambda &#x8868;&#x8FBE;&#x5F0F;</p>
+<p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java">Runnable r = <span class="hljs-keyword">new</span> Runnable(){
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>{
+        System.out.println(<span class="hljs-string">&quot;Hello Lambda&quot;</span>);
+    }
+}
+</code></pre>
+<p>Lambda &#x8868;&#x8FBE;&#x5F0F;&#x8868;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-java">Runnable r = () -&gt; System.out.println(<span class="hljs-string">&quot;Hello Lambda&quot;</span>);
+</code></pre>
+</li>
+<li><p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012; &#x5230; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;</p>
+<p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-java">TreeSet&lt;Integer&gt; ts = <span class="hljs-keyword">new</span> TreeSet&lt;&gt;(<span class="hljs-keyword">new</span> Comparator&lt;Integer&gt;(){
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Integer o1, Integer o2)</span></span>{
+        <span class="hljs-keyword">return</span> Integer.compare(o1, o2);
+    }
+});
+</code></pre>
+<p>Lambda &#x8868;&#x8FBE;&#x5F0F;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-java">TreeSet&lt;Integer&gt; ts = <span class="hljs-keyword">new</span> TreeSet&lt;&gt;(
+    (o1, o2) -&gt; Integer.compare(o1, o2);
+);
+</code></pre>
+</li>
+</ul>
+<h4 id="6&#x3001;lambda-&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x6CD5;">6&#x3001;Lambda &#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x6CD5;</h4>
+<p>Lambda &#x8868;&#x8FBE;&#x5F0F;&#x5728; Java &#x8BED;&#x8A00;&#x4E2D;&#x5F15;&#x5165;&#x4E86; <code>-&gt;</code> &#x64CD;&#x4F5C;&#x7B26;&#xFF0C;<code>-&gt;</code> &#x64CD;&#x4F5C;&#x7B26;&#x79F0;&#x4E3A; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x64CD;&#x4F5C;&#x7B26;&#x6216;&#x8005;&#x7BAD;&#x5934;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5B83;&#x5C06; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206;&#xFF1A;</p>
+<ul>
+<li><p>&#x5DE6;&#x4FA7;&#x90E8;&#x5206;&#x6307;&#x5B9A;&#x4E86; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x6240;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#xFF1B;</p>
+<p>Lambda &#x8868;&#x8FBE;&#x5F0F;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x5BF9;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x53C2;&#x6570;&#x5217;&#x8868;&#x672C;&#x8D28;&#x4E0A;&#x5BF9;&#x5E94;&#x7740;&#x63A5;&#x53E3;&#x4E2D;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5217;&#x8868;&#x3002;</p>
+</li>
+<li><p>&#x53F3;&#x4FA7;&#x90E8;&#x5206;&#x6307;&#x5B9A;&#x4E86; Lambda &#x4F53;&#xFF0C;&#x5373; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x8981;&#x6267;&#x884C;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+</li>
+</ul>
+<h5 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h5>
+<ol>
+<li><h5 id="&#x65E0;&#x53C2;&#x3001;&#x65E0;&#x8FD4;&#x56DE;&#x503C;">&#x65E0;&#x53C2;&#x3001;&#x65E0;&#x8FD4;&#x56DE;&#x503C;</h5>
+<p>Lambda &#x4F53;&#x53EA;&#x6709;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#xFF1A;</p>
+<pre><code class="lang-java">Runnable r = () -&gt; System.out.println(<span class="hljs-string">&quot;Hello Lambda&quot;</span>);
+</code></pre>
+</li>
+<li><h5 id="&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3001;&#x65E0;&#x8FD4;&#x56DE;&#x503C;">&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3001;&#x65E0;&#x8FD4;&#x56DE;&#x503C;</h5>
+<pre><code class="lang-java">Consumer&lt;String&gt; func = (s) -&gt; System.out.println(s);
+</code></pre>
+</li>
+<li><h5 id="&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x53C2;&#x6570;&#x7684;&#x5C0F;&#x62EC;&#x53F7;&#x53EF;&#x4EE5;&#x7701;&#x7565;">&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x53C2;&#x6570;&#x7684;&#x5C0F;&#x62EC;&#x53F7;&#x53EF;&#x4EE5;&#x7701;&#x7565;</h5>
+<pre><code class="lang-java">Consumer&lt;String&gt; func = s -&gt; System.out.println(s);
+</code></pre>
+</li>
+<li><h5 id="&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6709;&#x8FD4;&#x56DE;&#x503C;">&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6709;&#x8FD4;&#x56DE;&#x503C;</h5>
+<pre><code class="lang-java">BinaryOperator&lt;Integer&gt; bo = (a, b) -&gt; {
+    System.out.println(<span class="hljs-string">&quot;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&quot;</span>);
+    <span class="hljs-keyword">return</span> a + b;
+};
+</code></pre>
+</li>
+<li><h5 id="lambda-&#x4F53;&#x53EA;&#x6709;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;return-&#x548C;&#x82B1;&#x62EC;&#x53F7;&#x53EF;&#x4EE5;&#x7701;&#x7565;">Lambda &#x4F53;&#x53EA;&#x6709;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;<code>return</code> &#x548C;&#x82B1;&#x62EC;&#x53F7;&#x53EF;&#x4EE5;&#x7701;&#x7565;</h5>
+<pre><code class="lang-java">BinaryOperator&lt;Integer&gt; bo = (a, b) -&gt; a + b;
+</code></pre>
+</li>
+<li><h5 id="lambda-&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x53C2;&#x6570;&#x5217;&#x8868;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x7701;&#x7565;">Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x53C2;&#x6570;&#x5217;&#x8868;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x7701;&#x7565;</h5>
+<p>JVM &#x7F16;&#x8BD1;&#x5668;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x4E0A;&#x4E0B;&#x6587;&#x63A8;&#x65AD;&#x51FA;&#x53C2;&#x6570;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;</p>
+<pre><code class="lang-java">BinaryOperator&lt;Integer&gt; bo = (Integer a, Integer b) -&gt; {
+    <span class="hljs-keyword">return</span> a + b;
+};
+</code></pre>
+<p>&#x7B49;&#x540C;&#x4E8E;&#xFF1A;</p>
+<pre><code class="lang-java">BinaryOperator&lt;Integer&gt; bo = (a, b) -&gt; {
+    <span class="hljs-keyword">return</span> a + b;
+};
+</code></pre>
+</li>
+</ol>
+<h4 id="7&#x3001;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">7&#x3001;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</h4>
+<p>Lambda &#x8868;&#x8FBE;&#x5F0F;&#x9700;&#x8981;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x7684;&#x652F;&#x6301;&#x3002;</p>
+<p>&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x79F0;&#x4E3A;<strong>&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</strong>&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x6765;&#x521B;&#x5EFA;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#xFF08;&#x82E5; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x53D7;&#x68C0;&#x5F02;&#x5E38;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x5F02;&#x5E38;&#x9700;&#x8981;&#x5728;&#x76EE;&#x6807;&#x63A5;&#x53E3;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x4E0A;&#x8FDB;&#x884C;&#x58F0;&#x660E;&#xFF09;</p>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x610F;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x4E0A;&#x4F7F;&#x7528; <code>@FunctionalInterface</code> &#x6CE8;&#x89E3;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x5B83;&#x662F;&#x5426;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF0C;&#x540C;&#x65F6; javadoc &#x4E5F;&#x4F1A;&#x5305;&#x542B;&#x4E00;&#x6761;&#x58F0;&#x660E;&#xFF0C;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x501F;&#x53E3;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x76F8;&#x5E94;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@FunctionalInterface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MyFunc</span> &lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">getValue</span><span class="hljs-params">(T t)</span></span>;
+}
+</code></pre>
+<p>&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8FDB;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">handlerString</span><span class="hljs-params">(MyFunc&lt;String&gt; myFunc, String str)</span></span>{
+    <span class="hljs-keyword">return</span> myFunc.getValue(str);
+}
+</code></pre>
+<p>&#x4F7F;&#x7528; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x5B9E;&#x73B0;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x5199;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
+<pre><code class="lang-java">handlerString((s) -&gt; s.toUpperCase(), <span class="hljs-string">&quot;lambda&quot;</span>);
 </code></pre>
 
                                 
@@ -472,7 +773,7 @@
                 </a>
                 
                 
-                <a href="../wai-lian.md" class="navigation navigation-next " aria-label="Next page: 外链">
+                <a href="functional-interface.html" class="navigation navigation-next " aria-label="Next page: 函数式接口">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -483,7 +784,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lambda 表达式","level":"1.8.1","depth":2,"next":{"title":"外链","level":"1.9","depth":1,"path":"wai-lian.md","ref":"wai-lian.md","articles":[]},"previous":{"title":"Java 8","level":"1.8","depth":1,"path":"java8.md","ref":"java8.md","articles":[{"title":"Lambda 表达式","level":"1.8.1","depth":2,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java8/lambda.md","mtime":"2022-01-06T13:02:11.941Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-13T12:28:01.486Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lambda 表达式","level":"1.8.1","depth":2,"next":{"title":"函数式接口","level":"1.8.2","depth":2,"path":"java8/functional-interface.md","ref":"java8/functional-interface.md","articles":[]},"previous":{"title":"Java 8","level":"1.8","depth":1,"path":"java8.md","ref":"java8.md","articles":[{"title":"Lambda 表达式","level":"1.8.1","depth":2,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]},{"title":"函数式接口","level":"1.8.2","depth":2,"path":"java8/functional-interface.md","ref":"java8/functional-interface.md","articles":[]},{"title":"引用","level":"1.8.3","depth":2,"path":"java8/reference.md","ref":"java8/reference.md","articles":[]},{"title":"HashMap","level":"1.8.4","depth":2,"path":"java8/hashmap.md","ref":"java8/hashmap.md","articles":[]},{"title":"Stream","level":"1.8.5","depth":2,"path":"java8/stream.md","ref":"java8/stream.md","articles":[]},{"title":"Optional","level":"1.8.6","depth":2,"path":"java8/optional.md","ref":"java8/optional.md","articles":[]},{"title":"默认方法","level":"1.8.7","depth":2,"path":"java8/default-method.md","ref":"java8/default-method.md","articles":[]},{"title":"日期和时间","level":"1.8.8","depth":2,"path":"java8/date-time.md","ref":"java8/date-time.md","articles":[]},{"title":"注解增强","level":"1.8.9","depth":2,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java8/lambda.md","mtime":"2022-01-25T06:23:04.738Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-29T07:35:54.675Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
