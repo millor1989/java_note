@@ -5,6 +5,8 @@
   * [JAR](java/jar.md)
 * [Java API](java-api.md)
   * [Runtime](java-api/runtime.md)
+  * [Try-With-Source](java-api/tws.md)
+  * [ThreadLocal](java-api/threadlocal.md)
 * [第三方工具](third-party.md)
   * [数据库连接池 Druid](third-party-api/druid.md)
   * [HTTP 请求](third-party-api/http.md)
@@ -38,5 +40,6 @@
   * [默认方法](java8/default-method.md)
   * [日期和时间](java8/date-time.md)
   * 注解增强
+* [其它](other.md)
 * [外链](wai-lian.md)
 
