@@ -152,3 +152,14 @@
 `int i = key.threadLocalHashCode & (len-1)` 很巧妙，从数组中找到一个元素存放位置的最简单方法就是利用该元素的 `hashcode` 对这个集合的长度取余。`ThreadLocalMap` 将容量限制为 2 的整数次幂，从而可以将取余运算转换为 `hashcode` 和 `集合长度 - 1` 的与运算，能够提高查询效率。
 
 ##### 内存泄露问题
+
+如果垃圾回收将 ThreadLocal 对象回收，`ThreadLocalMap` 中对应 `Entry` 的 key 为变为 `null`，但是值仍然是存在的；如果线程一直未被销毁，value 就无法被回收，就会出现内存泄露。
+
+```java
+ThreadLocal<String> threadLocal = new ThreadLocal<>();
+threadLocal.set("bulala");
+threadLocal = null;
+System.gc();
+```
+
+出现内存泄漏的原因是失去了对 ThreadLocal 对象的强引用，避免内存泄漏最简单的方法就是始终保持对ThreadLocal 对象的强引用，可以将 ThreadLocal 对象声明为一个全局常量。所有的线程共用此对象，由于此对象始终存在着一个全局的强引用，所以其不会被垃圾回收。

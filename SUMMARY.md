@@ -10,6 +10,8 @@
 * [第三方工具](third-party.md)
   * [数据库连接池 Druid](third-party-api/druid.md)
   * [HTTP 请求](third-party-api/http.md)
+  * [Tomcat](third-party-api/tomcat.md)
+  * [Log4j](third-party-api/log4j.md)
 * [并发](concurrency.md)
   * [synchronized](concurrency/synchronized.md)
   * [volatile](concurrency/volatile.md)

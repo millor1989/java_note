@@ -236,6 +236,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.3" data-path="../third-party-api/tomcat.html">
+            
+                <a href="../third-party-api/tomcat.html">
+            
+                    
+                    Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../third-party-api/log4j.html">
+            
+                <a href="../third-party-api/log4j.html">
+            
+                    
+                    Log4j
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -866,6 +892,13 @@
 </code></pre>
 <p><code>int i = key.threadLocalHashCode &amp; (len-1)</code> &#x5F88;&#x5DE7;&#x5999;&#xFF0C;&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;&#x7684;&#x6700;&#x7B80;&#x5355;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5229;&#x7528;&#x8BE5;&#x5143;&#x7D20;&#x7684; <code>hashcode</code> &#x5BF9;&#x8FD9;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x957F;&#x5EA6;&#x53D6;&#x4F59;&#x3002;<code>ThreadLocalMap</code> &#x5C06;&#x5BB9;&#x91CF;&#x9650;&#x5236;&#x4E3A; 2 &#x7684;&#x6574;&#x6570;&#x6B21;&#x5E42;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x5C06;&#x53D6;&#x4F59;&#x8FD0;&#x7B97;&#x8F6C;&#x6362;&#x4E3A; <code>hashcode</code> &#x548C; <code>&#x96C6;&#x5408;&#x957F;&#x5EA6; - 1</code> &#x7684;&#x4E0E;&#x8FD0;&#x7B97;&#xFF0C;&#x80FD;&#x591F;&#x63D0;&#x9AD8;&#x67E5;&#x8BE2;&#x6548;&#x7387;&#x3002;</p>
 <h5 id="&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x95EE;&#x9898;">&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x95EE;&#x9898;</h5>
+<p>&#x5982;&#x679C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5C06; ThreadLocal &#x5BF9;&#x8C61;&#x56DE;&#x6536;&#xFF0C;<code>ThreadLocalMap</code> &#x4E2D;&#x5BF9;&#x5E94; <code>Entry</code> &#x7684; key &#x4E3A;&#x53D8;&#x4E3A; <code>null</code>&#xFF0C;&#x4F46;&#x662F;&#x503C;&#x4ECD;&#x7136;&#x662F;&#x5B58;&#x5728;&#x7684;&#xFF1B;&#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x4E00;&#x76F4;&#x672A;&#x88AB;&#x9500;&#x6BC1;&#xFF0C;value &#x5C31;&#x65E0;&#x6CD5;&#x88AB;&#x56DE;&#x6536;&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x3002;</p>
+<pre><code class="lang-java">ThreadLocal&lt;String&gt; threadLocal = <span class="hljs-keyword">new</span> ThreadLocal&lt;&gt;();
+threadLocal.set(<span class="hljs-string">&quot;bulala&quot;</span>);
+threadLocal = <span class="hljs-keyword">null</span>;
+System.gc();
+</code></pre>
+<p>&#x51FA;&#x73B0;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x539F;&#x56E0;&#x662F;&#x5931;&#x53BB;&#x4E86;&#x5BF9; ThreadLocal &#x5BF9;&#x8C61;&#x7684;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x907F;&#x514D;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x59CB;&#x7EC8;&#x4FDD;&#x6301;&#x5BF9;ThreadLocal &#x5BF9;&#x8C61;&#x7684;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06; ThreadLocal &#x5BF9;&#x8C61;&#x58F0;&#x660E;&#x4E3A;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x5E38;&#x91CF;&#x3002;&#x6240;&#x6709;&#x7684;&#x7EBF;&#x7A0B;&#x5171;&#x7528;&#x6B64;&#x5BF9;&#x8C61;&#xFF0C;&#x7531;&#x4E8E;&#x6B64;&#x5BF9;&#x8C61;&#x59CB;&#x7EC8;&#x5B58;&#x5728;&#x7740;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x4E0D;&#x4F1A;&#x88AB;&#x5783;&#x573E;&#x56DE;&#x6536;&#x3002;</p>
 
                                 
                                 </section>
@@ -909,7 +942,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ThreadLocal","level":"1.2.3","depth":2,"next":{"title":"第三方工具","level":"1.3","depth":1,"path":"third-party.md","ref":"third-party.md","articles":[{"title":"数据库连接池 Druid","level":"1.3.1","depth":2,"path":"third-party-api/druid.md","ref":"third-party-api/druid.md","articles":[]},{"title":"HTTP 请求","level":"1.3.2","depth":2,"path":"third-party-api/http.md","ref":"third-party-api/http.md","articles":[]}]},"previous":{"title":"Try-With-Source","level":"1.2.2","depth":2,"path":"java-api/tws.md","ref":"java-api/tws.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java-api/threadlocal.md","mtime":"2023-04-18T07:07:32.047Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-18T07:11:56.712Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ThreadLocal","level":"1.2.3","depth":2,"next":{"title":"第三方工具","level":"1.3","depth":1,"path":"third-party.md","ref":"third-party.md","articles":[{"title":"数据库连接池 Druid","level":"1.3.1","depth":2,"path":"third-party-api/druid.md","ref":"third-party-api/druid.md","articles":[]},{"title":"HTTP 请求","level":"1.3.2","depth":2,"path":"third-party-api/http.md","ref":"third-party-api/http.md","articles":[]},{"title":"Tomcat","level":"1.3.3","depth":2,"path":"third-party-api/tomcat.md","ref":"third-party-api/tomcat.md","articles":[]},{"title":"Log4j","level":"1.3.4","depth":2,"path":"third-party-api/log4j.md","ref":"third-party-api/log4j.md","articles":[]}]},"previous":{"title":"Try-With-Source","level":"1.2.2","depth":2,"path":"java-api/tws.md","ref":"java-api/tws.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java-api/threadlocal.md","mtime":"2023-04-20T01:31:11.937Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-15T05:47:26.797Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

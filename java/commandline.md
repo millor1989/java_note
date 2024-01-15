@@ -18,6 +18,26 @@
 
   编译工具
 
+  例：
+
+  ```bash
+  # 编写 Hello.java 文件，内容如下：
+  # public class Hello {
+  # 	public static void main(String[] args) {
+  # 		System.out.println("Hello Java");
+  # 	}
+  # }
+  
+  # 命令行，进入 Hello.java 所在的目录，执行 javac 进行编译
+  $ javac Hello.java
+  
+  # 编译成功，生成 Hello.class 文件
+  # 执行 Hello.class 文件，输出 Hello Java
+  # java <全限定名> 形式；在当前目录执行 class 文件，省略了 -classpath
+  $ java Hello
+  Hello Java
+  ```
+
 - #### `jmap`
 
   查看指定 Java 进程的共享对象内存映射或堆内存细节
