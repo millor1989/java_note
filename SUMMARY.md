@@ -16,6 +16,7 @@
   * [synchronized](concurrency/synchronized.md)
   * [volatile](concurrency/volatile.md)
 * [动态代理](proxy.md)
+* [JVM](jvm.md)
 * [Maven](maven.md)
   * [基础](maven/pom.md)
   * [模块管理](maven/module.md)
