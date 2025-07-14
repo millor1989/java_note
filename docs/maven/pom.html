@@ -152,7 +152,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../java-api/runtime.html">
+        <li class="chapter " data-level="1.2.1" data-path="../java-api/jdbc.html">
+            
+                <a href="../java-api/jdbc.html">
+            
+                    
+                    JDBC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../java-api/runtime.html">
             
                 <a href="../java-api/runtime.html">
             
@@ -165,7 +178,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../java-api/tws.html">
+        <li class="chapter " data-level="1.2.3" data-path="../java-api/tws.html">
             
                 <a href="../java-api/tws.html">
             
@@ -178,7 +191,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../java-api/threadlocal.html">
+        <li class="chapter " data-level="1.2.4" data-path="../java-api/threadlocal.html">
             
                 <a href="../java-api/threadlocal.html">
             
@@ -300,6 +313,19 @@
             
                     
                     volatile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../concurrency/pool.html">
+            
+                <a href="../concurrency/pool.html">
+            
+                    
+                    线程池
             
                 </a>
             
@@ -1181,6 +1207,107 @@ db.pwd=456
 </code></pre>
 <p>&#x5176;&#x4E2D; <code>resource -&gt; filtering</code> &#x5FC5;&#x987B;&#x662F; <code>true</code>&#x3002;</p>
 <p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x6253;&#x5305;&#x7684;&#x90FD;&#x662F; <code>db.properties</code> &#xFF0C;&#x53EA;&#x662F;&#x5185;&#x5BB9;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x4E3A;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x3002;<a href="https://zhuanlan.zhihu.com/p/305816099" target="_blank">&#x53C2;&#x8003;&#x6587;&#x7AE0;</a></p>
+<h4 id="6&#x3001;archetype">6&#x3001;Archetype</h4>
+<p><strong>Maven Archetype</strong>  &#x662F; Maven &#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x79CD;&#x9879;&#x76EE;&#x6A21;&#x677F;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x5FEB;&#x901F;&#x751F;&#x6210;&#x7B26;&#x5408;&#x7279;&#x5B9A;<strong>&#x7ED3;&#x6784;</strong>&#x548C;<strong>&#x914D;&#x7F6E;</strong>&#x7684;&#x9879;&#x76EE;&#x3002;&#x901A;&#x8FC7;&#x4F7F;&#x7528; <code>Archetype</code>&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x7684;&#x7E41;&#x7410;&#x8FC7;&#x7A0B;&#xFF0C;&#x5E76;&#x786E;&#x4FDD;&#x751F;&#x6210;&#x7684;&#x9879;&#x76EE;&#x9075;&#x5FAA;&#x4E00;&#x81F4;&#x7684;&#x6807;&#x51C6;&#x548C;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x3002;</p>
+<p>&#x4F7F;&#x7528; Archetype &#x521B;&#x5EFA; maven &#x9879;&#x76EE;&#x793A;&#x4F8B;&#xFF0C;&#x5728;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x7684;&#x5730;&#x65B9;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x4F1A;&#x5C55;&#x793A;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684; archetype</span>
+mvn archetype:generate
+
+....
+2722: remote -&gt; za.co.absa.hyperdrive:component-archetype (-)
+Choose a number or apply filter (format: [groupId:]artifactId, <span class="hljs-keyword">case</span> sensitive contains): 1613: :scala
+Choose archetype:
+
+<span class="hljs-comment"># &#x6839;&#x636E;&#x63D0;&#x793A;&#x9009;&#x62E9;&#x5BF9;&#x5E94; archetype &#x7F16;&#x53F7;&#x6216;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;</span>
+Choose a number or apply filter (format: [groupId:]artifactId, <span class="hljs-keyword">case</span> sensitive contains): : 15
+
+<span class="hljs-comment"># &#x9009;&#x4E2D;&#x9700;&#x8981;&#x7684; archetype &#x540E;&#xFF0C;&#x9009;&#x62E9;&#x9700;&#x8981; archetype &#x7684;&#x7248;&#x672C;</span>
+Choose net.alchim31.maven:scala-archetype-simple version:
+1: 1.4
+2: 1.5
+3: 1.6
+4: 1.7
+Choose a number: 4: 4
+
+<span class="hljs-comment"># &#x4E4B;&#x540E;&#x5B9A;&#x4E49;groupId&#x3001;artifactId&#x3001;version&#x3001;package</span>
+<span class="hljs-comment"># version&#x3001;package &#x4F1A;&#x6709;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x76F4;&#x63A5;&#x56DE;&#x8F66;&#x5373;&#x53EF;</span>
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;groupId&apos;</span>: com.myself
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;artifactId&apos;</span>: ml_<span class="hljs-built_in">test</span>
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;version&apos;</span> 1.0-SNAPSHOT: : 1.0
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;package&apos;</span> com.myself: : com.myself.start
+
+<span class="hljs-comment"># &#x786E;&#x8BA4;&#x9879;&#x76EE;&#x4FE1;&#x606F;&#x540E;&#xFF0C;maven &#x4F1A;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x9879;&#x76EE;&#x7684;&#x521B;&#x5EFA;</span>
+Confirm properties configuration:
+groupId: com.myself
+artifactId: ml_<span class="hljs-built_in">test</span>
+version: 1.0
+package: com.myself.start
+ Y: : Y
+</code></pre>
+<h5 id="61&#x3001;&#x81EA;&#x5B9A;&#x4E49;-archetype">6.1&#x3001;&#x81EA;&#x5B9A;&#x4E49; archetype</h5>
+<p>&#x5178;&#x578B;&#x7684; archetype &#x9879;&#x76EE;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code class="lang-text">my-archetype/
+&#x251C;&#x2500;&#x2500; pom.xml
+&#x2514;&#x2500;&#x2500; src/
+    &#x2514;&#x2500;&#x2500; main/
+        &#x2514;&#x2500;&#x2500; resources/
+            &#x251C;&#x2500;&#x2500; archetype-resources/   # &#x6A21;&#x677F;&#x6587;&#x4EF6;
+            &#x2502;   &#x251C;&#x2500;&#x2500; pom.xml            # &#x5FC5;&#x9009;&#x6A21;&#x677F;
+            &#x2502;   &#x251C;&#x2500;&#x2500; src/
+            &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; main/
+            &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; java/
+            &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; resources/
+            &#x2502;   |   &#x2514;&#x2500;&#x2500; test/
+            &#x2502;   |       &#x2514;&#x2500;&#x2500; java/
+            &#x2502;   &#x2514;&#x2500;&#x2500; .gitignore
+            &#x2514;&#x2500;&#x2500; META-INF/
+                &#x2514;&#x2500;&#x2500; maven/
+                    &#x2514;&#x2500;&#x2500; archetype-metadata.xml  # &#x5143;&#x6570;&#x636E;&#x914D;&#x7F6E;
+</code></pre>
+<p>&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x548C; <code>archetype-resources</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>pom.xml</code> &#x6587;&#x4EF6;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x6839;&#x636E;&#x9879;&#x76EE;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5B9A;&#x4E49;&#x3002;</p>
+<p>&#x5143;&#x6570;&#x636E;&#x914D;&#x7F6E;&#x6587;&#x4EF6; <code>archetype-metadata.xml</code> &#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">archetype-descriptor</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;my-archetype&quot;</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- &#x81EA;&#x5B9A;&#x4E49;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x9009; --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">requiredProperties</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">requiredProperty</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;appName&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">requiredProperties</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">fileSets</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> <span class="hljs-attr">filtered</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">packaged</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.java<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> <span class="hljs-attr">filtered</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.properties<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fileSets</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">archetype-descriptor</span>&gt;</span>
+</code></pre>
+<p>&#x6A21;&#x677F;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9884;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> ${<span class="hljs-keyword">package</span>};
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> $</span>{appName}Application {
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;Hello Archetype!&quot;</span>);
+  }
+}
+</code></pre>
+<p>&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6267;&#x884C; <code>mvn clean install</code> &#x5C06; archetype &#x5B89;&#x88C5;&#x5230;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#xFF0C;&#x5373;&#x53EF;&#x5728;&#x672C;&#x5730;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-bash">mvn archetype:generate \
+  -DarchetypeGroupId=com.example \     <span class="hljs-comment"># &#x6A21;&#x677F; groupId</span>
+  -DarchetypeArtifactId=my-archetype \ <span class="hljs-comment"># &#x6A21;&#x677F; artifactId</span>
+  -DarchetypeVersion=1.0-SNAPSHOT \    <span class="hljs-comment"># &#x6A21;&#x677F; version</span>
+  -DgroupId=com.myexample \
+  -DartifactId=demo-project \
+  -Dversion=1.0.0 \
+  -DappName=MyApp \
+  -DinteractiveMode=<span class="hljs-literal">false</span>
+</code></pre>
 
                                 
                                 </section>
@@ -1224,7 +1351,7 @@ db.pwd=456
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"基础","level":"1.7.1","depth":2,"next":{"title":"模块管理","level":"1.7.2","depth":2,"path":"maven/module.md","ref":"maven/module.md","articles":[]},"previous":{"title":"Maven","level":"1.7","depth":1,"path":"maven.md","ref":"maven.md","articles":[{"title":"基础","level":"1.7.1","depth":2,"path":"maven/pom.md","ref":"maven/pom.md","articles":[]},{"title":"模块管理","level":"1.7.2","depth":2,"path":"maven/module.md","ref":"maven/module.md","articles":[]},{"title":"其它","level":"1.7.3","depth":2,"path":"maven/qita.md","ref":"maven/qita.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"maven/pom.md","mtime":"2022-08-24T08:25:20.251Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-23T08:59:22.061Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"基础","level":"1.7.1","depth":2,"next":{"title":"模块管理","level":"1.7.2","depth":2,"path":"maven/module.md","ref":"maven/module.md","articles":[]},"previous":{"title":"Maven","level":"1.7","depth":1,"path":"maven.md","ref":"maven.md","articles":[{"title":"基础","level":"1.7.1","depth":2,"path":"maven/pom.md","ref":"maven/pom.md","articles":[]},{"title":"模块管理","level":"1.7.2","depth":2,"path":"maven/module.md","ref":"maven/module.md","articles":[]},{"title":"其它","level":"1.7.3","depth":2,"path":"maven/qita.md","ref":"maven/qita.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"maven/pom.md","mtime":"2025-02-26T06:18:31.781Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-07-14T06:47:26.746Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

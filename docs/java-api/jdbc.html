@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>模块管理 · GitBook</title>
+        <title>JDBC · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="qita.html" />
+    <link rel="next" href="runtime.html" />
     
     
-    <link rel="prev" href="pom.html" />
+    <link rel="prev" href="../java-api.html" />
     
 
     </head>
@@ -152,9 +152,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../java-api/jdbc.html">
+        <li class="chapter active" data-level="1.2.1" data-path="jdbc.html">
             
-                <a href="../java-api/jdbc.html">
+                <a href="jdbc.html">
             
                     
                     JDBC
@@ -165,9 +165,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../java-api/runtime.html">
+        <li class="chapter " data-level="1.2.2" data-path="runtime.html">
             
-                <a href="../java-api/runtime.html">
+                <a href="runtime.html">
             
                     
                     Runtime
@@ -178,9 +178,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../java-api/tws.html">
+        <li class="chapter " data-level="1.2.3" data-path="tws.html">
             
-                <a href="../java-api/tws.html">
+                <a href="tws.html">
             
                     
                     Try-With-Source
@@ -191,9 +191,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="../java-api/threadlocal.html">
+        <li class="chapter " data-level="1.2.4" data-path="threadlocal.html">
             
-                <a href="../java-api/threadlocal.html">
+                <a href="threadlocal.html">
             
                     
                     ThreadLocal
@@ -378,9 +378,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="pom.html">
+        <li class="chapter " data-level="1.7.1" data-path="../maven/pom.html">
             
-                <a href="pom.html">
+                <a href="../maven/pom.html">
             
                     
                     基础
@@ -391,9 +391,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.2" data-path="module.html">
+        <li class="chapter " data-level="1.7.2" data-path="../maven/module.html">
             
-                <a href="module.html">
+                <a href="../maven/module.html">
             
                     
                     模块管理
@@ -404,9 +404,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="qita.html">
+        <li class="chapter " data-level="1.7.3" data-path="../maven/qita.html">
             
-                <a href="qita.html">
+                <a href="../maven/qita.html">
             
                     
                     其它
@@ -782,7 +782,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >模块管理</a>
+        <a href=".." >JDBC</a>
     </h1>
 </div>
 
@@ -797,14 +797,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x6A21;&#x5757;&#x7BA1;&#x7406;">&#x6A21;&#x5757;&#x7BA1;&#x7406;</h3>
-<p>Maven &#x53EF;&#x4EE5;&#x6709;&#x6548;&#x7BA1;&#x7406;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684; Maven &#x9879;&#x76EE;&#x3002;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x5171;&#x901A;&#x4F9D;&#x8D56;&#x53EF;&#x4EE5;&#x63D0;&#x53D6;&#x5230; <code>parent</code> &#x9879;&#x76EE;&#x3002;</p>
-<p><code>parent</code> &#x9879;&#x76EE;&#x7684; <code>&lt;packaging&gt;</code> &#x662F; <code>pom</code> &#x800C;&#x4E0D;&#x662F; <code>jar</code>&#xFF0C;&#x56E0;&#x4E3A; <code>parent</code> &#x672C;&#x8EAB;&#x4E0D;&#x542B;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x3002;</p>
-<p>&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x6709;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;</p>
-<h4 id="1&#x3001;&#x7BA1;&#x7406;&#x4F9D;&#x8D56;">1&#x3001;&#x7BA1;&#x7406;&#x4F9D;&#x8D56;</h4>
-<p>&#x5F53;&#x9879;&#x76EE;&#x6A21;&#x5757;&#x8F83;&#x591A;&#xFF0C;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x5F15;&#x5165; jar &#x7248;&#x672C;&#x7684;&#x6DF7;&#x4E71;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7; <code>dependencyManagement</code> &#x89E3;&#x51B3;&#x3002;</p>
-<p>&#x5728;&#x9879;&#x76EE;&#x7684;&#x6839; pom &#x4E2D;&#x4F7F;&#x7528; <code>dependencyManagement</code> &#x6807;&#x7B7E;&#x5B9A;&#x4E49;&#x597D;&#x6240;&#x6709;&#x5B50;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x7684; jar &#x7684;&#x7248;&#x672C;&#xFF0C;&#x5B50;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x5BF9;&#x5E94;&#x7684; jar &#x65F6;&#x5373;&#x53EF;&#x4E0D;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x53F7;&#x3002;</p>
-<p>&#x7BA1;&#x7406;&#x4F9D;&#x8D56; <code>dependencyManagement</code> &#x53EA;&#x662F;&#x8FDB;&#x884C;&#x7248;&#x672C;&#x7BA1;&#x7406;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5C06;&#x5176;&#x5B9A;&#x4E49;&#x7684; jar &#x5BFC;&#x5165;&#x9879;&#x76EE;&#x4F5C;&#x4E3A;&#x9879;&#x76EE;&#x4F9D;&#x8D56;&#x3002;</p>
+                                <h3 id="jdbc"><a href="https://www.tutorialspoint.com/jdbc/index.htm" target="_blank">JDBC</a></h3>
+<p>Java Database Conectivity&#xFF08;JDBC&#xFF09;&#x662F; Java &#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684; API&#x3002;</p>
+<h4 id="&#x57FA;&#x7840;&#x7528;&#x6CD5;">&#x57FA;&#x7840;&#x7528;&#x6CD5;</h4>
+<ol>
+<li>&#x6CE8;&#x518C; JDBC Driver</li>
+<li>&#x83B7;&#x53D6;&#x8FDE;&#x63A5;</li>
+<li>&#x6267;&#x884C;&#x64CD;&#x4F5C;</li>
+<li>&#x5173;&#x95ED;&#x8FDE;&#x63A5;</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x6CE8;&#x518C; jdbc driver&#x2014;&#x2014;&#x65B9;&#x5F0F;&#x4E00;</span>
+Class.forName(<span class="hljs-string">&quot;oracle.jdbc.driver.OracleDriver&quot;</span>);
+<span class="hljs-comment">/*
+&#x6CE8;&#x518C; jdbc driver&#x2014;&#x2014;&#x65B9;&#x5F0F;&#x4E8C;
+Driver myDriver = new oracle.jdbc.driver.OracleDriver();
+DriverManager.registerDriver( myDriver );
+*/</span>
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#xFF0C;try-with-resource &#x81EA;&#x52A8;&#x5173;&#x95ED;&#x8FDE;&#x63A5;</span>
+<span class="hljs-keyword">try</span>(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+    Statement stmt = conn.createStatement();
+    ResultSet rs = stmt.executeQuery(QUERY);) {
+    <span class="hljs-comment">// &#x4ECE; result set &#x63D0;&#x53D6;&#x6570;&#x636E;</span>
+    <span class="hljs-keyword">while</span> (rs.next()) {
+        <span class="hljs-comment">// &#x6309;&#x540D;&#x79F0;&#x63D0;&#x53D6;&#x6570;&#x636E;</span>
+        System.out.print(<span class="hljs-string">&quot;ID: &quot;</span> + rs.getInt(<span class="hljs-string">&quot;id&quot;</span>));
+        System.out.print(<span class="hljs-string">&quot;, Age: &quot;</span> + rs.getInt(<span class="hljs-string">&quot;age&quot;</span>));
+        System.out.print(<span class="hljs-string">&quot;, First: &quot;</span> + rs.getString(<span class="hljs-string">&quot;first&quot;</span>));
+        System.out.println(<span class="hljs-string">&quot;, Last: &quot;</span> + rs.getString(<span class="hljs-string">&quot;last&quot;</span>));
+    }
+} <span class="hljs-keyword">catch</span> (SQLException e) {
+    e.printStackTrace();
+}
+</code></pre>
+<h4 id="&#x4E8B;&#x52A1;">&#x4E8B;&#x52A1;</h4>
+<p>ACID&#xFF1A;&#x539F;&#x5B50;&#x6027;&#xFF08;Atomicity&#xFF0C;&#x4E00;&#x7EC4;&#x64CD;&#x4F5C;&#x8981;&#x4E48;&#x90FD;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x90FD;&#x5931;&#x8D25;&#xFF09;&#x3001;&#x4E00;&#x81F4;&#x6027;&#xFF08;Consistency&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x81F4;&#x7684;&#x6570;&#x636E;&#x624D;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x51FA;&#x9519;&#x65F6;&#x56DE;&#x5230;&#x539F;&#x59CB;&#x72B6;&#x6001;&#xFF09;&#x3001;&#x9694;&#x79BB;&#x6027;&#xFF08;Isolation&#xFF0C;&#x4E8B;&#x52A1;&#x4E4B;&#x95F4;&#x4E92;&#x76F8;&#x9694;&#x79BB;&#x2014;&#x2014;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x53EF;&#x4EE5;&#x662F;&#xFF1A;read uncommitted&#x3001;read committed&#x3001;repeatable read&#x3001;serializable&#xFF09;&#x3001;&#x6301;&#x4E45;&#x6027;&#xFF08;Durablility&#xFF0C;&#x5B8C;&#x6210;&#x7684;&#x4E8B;&#x52A1;&#x4F1A;&#x5C06;&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#xFF09;&#x3002;</p>
+<ol>
+<li><code>setAutoCommit(false)</code> &#x5173;&#x95ED;&#x81EA;&#x52A8;&#x63D0;&#x4EA4;&#x6A21;&#x5F0F;</li>
+<li>&#x6267;&#x884C;&#x7ED3;&#x675F;&#x8981;&#x624B;&#x52A8; <code>commit()</code></li>
+<li>&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x6216;&#x8005;&#x5F02;&#x5E38;&#xFF0C;&#x5FC5;&#x987B;&#x56DE;&#x6EDA; <code>rollback()</code></li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-keyword">try</span>{
+   <span class="hljs-comment">// &#x5173;&#x95ED; auot commit &#x6A21;&#x5F0F;</span>
+   conn.setAutoCommit(<span class="hljs-keyword">false</span>);
+   Statement stmt = conn.createStatement();
+
+   String SQL = <span class="hljs-string">&quot;&#x6B63;&#x5E38; sql...&quot;</span>;
+   stmt.executeUpdate(SQL);  
+   String eSQL = <span class="hljs-string">&quot;&#x5F02;&#x5E38; sql...&quot;</span>;
+   stmt.executeUpdate(eSQL);
+   <span class="hljs-comment">// &#x63D0;&#x4EA4;&#x66F4;&#x6539;</span>
+   conn.commit();
+}<span class="hljs-keyword">catch</span>(SQLException se){
+   <span class="hljs-comment">// &#x5F02;&#x5E38;&#x56DE;&#x6EDA;</span>
+   conn.rollback();
+}
+</code></pre>
+<h4 id="&#x6279;&#x5904;&#x7406;">&#x6279;&#x5904;&#x7406;</h4>
+<p>&#x6279;&#x5904;&#x7406;&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x66F4;&#x65B0;&#x6216;&#x63D2;&#x5165;</p>
+<ol>
+<li>&#x5173;&#x95ED; auto commit &#x6A21;&#x5F0F;&#xFF08;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x63A8;&#x8350;&#x5173;&#x95ED;&#x2014;&#x2014;&#x56E0;&#x4E3A;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF09;</li>
+<li>&#x83B7;&#x53D6; <code>Statement</code> / <code>PreparedStatement</code></li>
+<li>&#x9010;&#x8BB0;&#x5F55; <code>addBatch()</code></li>
+<li>&#x9700;&#x8981;&#x6267;&#x884C;&#x6279;&#x6B21;&#x65F6; <code>executeBatch()</code></li>
+<li>&#x6267;&#x884C;&#x8FC7;&#x4E00;&#x4E2A;&#x6279;&#x6B21;&#x540E; <code>commit()</code> &#x63D0;&#x4EA4;&#x2014;&#x2014;&#x5982;&#x679C;&#x6570;&#x636E;&#x91CF;&#x975E;&#x5E38;&#x5927;&#xFF0C;&#x53EF;&#x4EE5;&#x6BCF;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x65F6; <code>executeBatch()</code> &#x6267;&#x884C;&#x6279;&#x6B21;&#x5E76; <code>commit()</code> &#x63D0;&#x4EA4;&#x4E00;&#x6B21;&#xFF0C;&#x5982;&#x679C;&#x63D0;&#x4EA4;&#x540E;&#x8FD8;&#x6709;&#x5F85;&#x6267;&#x884C;&#x7684;&#x6279;&#x6B21;&#x9700;&#x8981; <code>clearBatch()</code> &#x540E;&#x518D; <code>addBatch()</code></li>
+<li>&#x5F02;&#x5E38;&#x65F6; <code>rollback()</code></li>
+</ol>
+<h4 id="&#x8FDE;&#x63A5;&#x6C60;">&#x8FDE;&#x63A5;&#x6C60;</h4>
+<p>&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x5F00;&#x9500;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#x7684;&#x6548;&#x7387;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FDE;&#x63A5;&#x6C60;&#x3002;</p>
+<p>&#x5E38;&#x89C1;&#x8FDE;&#x63A5;&#x6C60;&#xFF1A;HikariCP&#xFF08;&#x6027;&#x80FD;&#x6700;&#x4F73;&#xFF09;&#x3001;Druid&#xFF08;&#x6027;&#x80FD;&#x4F18;&#x79C0;&#xFF0C;&#x5E26;&#x76D1;&#x63A7;&#xFF09;&#x3001;Apache Commons DBCP&#x3001;c3p0&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x8FDE;&#x63A5;&#x6C60;&#x7684;&#x597D;&#x5904;&#x4E0D;&#x53EA;&#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#x6548;&#x7387;&#x9AD8;&#xFF0C;&#x8FD8;&#x6709;&#x907F;&#x514D;&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x7B49;&#x7B49;&#x597D;&#x5904;&#x2014;&#x2014;&#x53EF;&#x53C2;&#x8003;&#x5177;&#x4F53;&#x7684;&#x8FDE;&#x63A5;&#x6C60;&#x5B9E;&#x73B0;&#x3002;</p>
+<ul>
+<li>&#x8FDE;&#x63A5;&#x6C60;&#x662F;<strong>&#x590D;&#x7528;</strong>&#x8FDE;&#x63A5;&#x7684;&#xFF0C;&#x4ECE;&#x8FDE;&#x63A5;&#x6C60;&#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#x7684; <code>close()</code> &#x662F;&#x5C06;&#x8FDE;&#x63A5;&#x5F52;&#x8FD8;&#x8FDE;&#x63A5;&#x6C60;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x91CA;&#x653E;&#x8FDE;&#x63A5;</li>
+<li>&#x6279;&#x5904;&#x7406;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x56DE;&#x6EDA;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x56DE;&#x6EDA;&#x4E8B;&#x52A1;&#x4F1A;&#x751F;&#x6210;<strong>&#x201C;&#x810F;&#x201D;&#x8FDE;&#x63A5;</strong>&#xFF0C;&#x590D;&#x7528;&#x8FD9;&#x4E2A;&#x201C;&#x810F;&#x201D;&#x8FDE;&#x63A5;&#xFF0C;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x884C;&#x4E3A;&#x4E0D;&#x53EF;&#x9884;&#x6D4B;</li>
+</ul>
+<h4 id="&#x5F02;&#x5E38;">&#x5F02;&#x5E38;</h4>
+<p>&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x65AD;&#x5F00;</p>
+<p>The last packet successfully received from the server was 79,834,920 milliseconds ago. The last packet sent successfully to the server was 79,834,920 milliseconds ago. is longer than the server configured value of &apos;wait_timeout&apos;. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property &apos;autoReconnect=true&apos; to avoid this problem.</p>
 
                                 
                                 </section>
@@ -832,12 +900,12 @@
 
             
                 
-                <a href="pom.html" class="navigation navigation-prev " aria-label="Previous page: 基础">
+                <a href="../java-api.html" class="navigation navigation-prev " aria-label="Previous page: Java API">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="qita.html" class="navigation navigation-next " aria-label="Next page: 其它">
+                <a href="runtime.html" class="navigation navigation-next " aria-label="Next page: Runtime">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -848,7 +916,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"模块管理","level":"1.7.2","depth":2,"next":{"title":"其它","level":"1.7.3","depth":2,"path":"maven/qita.md","ref":"maven/qita.md","articles":[]},"previous":{"title":"基础","level":"1.7.1","depth":2,"path":"maven/pom.md","ref":"maven/pom.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"maven/module.md","mtime":"2022-06-17T03:37:24.831Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-07-14T06:47:26.746Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JDBC","level":"1.2.1","depth":2,"next":{"title":"Runtime","level":"1.2.2","depth":2,"path":"java-api/runtime.md","ref":"java-api/runtime.md","articles":[]},"previous":{"title":"Java API","level":"1.2","depth":1,"path":"java-api.md","ref":"java-api.md","articles":[{"title":"JDBC","level":"1.2.1","depth":2,"path":"java-api/jdbc.md","ref":"java-api/jdbc.md","articles":[]},{"title":"Runtime","level":"1.2.2","depth":2,"path":"java-api/runtime.md","ref":"java-api/runtime.md","articles":[]},{"title":"Try-With-Source","level":"1.2.3","depth":2,"path":"java-api/tws.md","ref":"java-api/tws.md","articles":[]},{"title":"ThreadLocal","level":"1.2.4","depth":2,"path":"java-api/threadlocal.md","ref":"java-api/threadlocal.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java-api/jdbc.md","mtime":"2025-07-03T10:34:25.439Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-07-14T06:47:26.746Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

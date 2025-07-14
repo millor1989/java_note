@@ -77,8 +77,26 @@ public class Test {
 以上 5 种情况称为对一个类的**主动引用**。除此之外，所有引用类的方式都不会触发初始化，称为**被动引用**，比如：
 
 1. 通过子类引用父类的静态字段，不会导致子类的初始化。
+
 2. 通过数组定义来引用类，不会触发此类的初始化。
-3. 常量在边一阶段会存入调用类的常量池中，本质上并没有直接引用到定义常量的类，也不会触发定义常量的类的初始化。
+
+3. 常量如果在编译阶段能确定其值（即，编译时常量）会存入调用类的常量池中，本质上并没有直接引用到定义常量的类，也不会触发定义常量的类的初始化。但是，访问非编译时常量（需要运行时才能计算值或是创建的对象）会触发其所在类的加载。
+
+   ```java
+   public class CTClass {
+       public static final int SUM = 1 + 2; // 编译时常量表达式
+       public static final String MESSAGE = "Hello" + " " + "world"; // 编译时常量表达式
+   }
+   
+   public class RTClass {
+       public static final int COMPUTED_NUMBER = computeValue(); // 需要在运行时计算
+       public static final String NON_CONSTANT_STRING = new String("Hello"); // 创建了新的 String 对象
+   
+       private static int computeValue() {
+           return 21 * 2;
+       }
+   }
+   ```
 
 #### 3、类加载器
 

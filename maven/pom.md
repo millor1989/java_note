@@ -442,3 +442,125 @@ db.pwd=456
 其中 `resource -> filtering` 必须是 `true`。
 
 这种方式下，打包的都是 `db.properties` ，只是内容会被替换为不同环境文件的内容。[参考文章](https://zhuanlan.zhihu.com/p/305816099)
+
+#### 6、Archetype
+
+**Maven Archetype**  是 Maven 提供的一种项目模板工具，用于快速生成符合特定**结构**和**配置**的项目。通过使用 `Archetype`，开发者可以避免手动创建项目的繁琐过程，并确保生成的项目遵循一致的标准和最佳实践。
+
+使用 Archetype 创建 maven 项目示例，在需要创建项目的地方依次执行如下命令：
+
+```bash
+# 会展示所有可用的 archetype
+mvn archetype:generate
+
+....
+2722: remote -> za.co.absa.hyperdrive:component-archetype (-)
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 1613: :scala
+Choose archetype:
+
+# 根据提示选择对应 archetype 编号或进行过滤
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): : 15
+
+# 选中需要的 archetype 后，选择需要 archetype 的版本
+Choose net.alchim31.maven:scala-archetype-simple version:
+1: 1.4
+2: 1.5
+3: 1.6
+4: 1.7
+Choose a number: 4: 4
+
+# 之后定义groupId、artifactId、version、package
+# version、package 会有默认值，如果要使用默认值，直接回车即可
+Define value for property 'groupId': com.myself
+Define value for property 'artifactId': ml_test
+Define value for property 'version' 1.0-SNAPSHOT: : 1.0
+Define value for property 'package' com.myself: : com.myself.start
+
+# 确认项目信息后，maven 会自动完成项目的创建
+Confirm properties configuration:
+groupId: com.myself
+artifactId: ml_test
+version: 1.0
+package: com.myself.start
+ Y: : Y
+```
+
+##### 6.1、自定义 archetype
+
+典型的 archetype 项目结构：
+
+```text
+my-archetype/
+├── pom.xml
+└── src/
+    └── main/
+        └── resources/
+            ├── archetype-resources/   # 模板文件
+            │   ├── pom.xml            # 必选模板
+            │   ├── src/
+            │   │   ├── main/
+            │   │   │   ├── java/
+            │   │   │   └── resources/
+            │   |   └── test/
+            │   |       └── java/
+            │   └── .gitignore
+            └── META-INF/
+                └── maven/
+                    └── archetype-metadata.xml  # 元数据配置
+```
+
+项目根目录和 `archetype-resources` 目录下的 `pom.xml` 文件是一样的，根据项目需要进行定义。
+
+元数据配置文件 `archetype-metadata.xml` 示例：
+
+```xml
+<archetype-descriptor name="my-archetype">
+  <!-- 自定义参数，可选 -->
+  <requiredProperties>
+    <requiredProperty key="appName"/>
+  </requiredProperties>
+
+  <fileSets>
+    <fileSet encoding="UTF-8" filtered="true" packaged="true">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
+```
+
+模板中可以使用预定的参数：
+
+```java
+package ${package};
+
+public class ${appName}Application {
+  public static void main(String[] args) {
+    System.out.println("Hello Archetype!");
+  }
+}
+
+```
+
+配置完成后，执行 `mvn clean install` 将 archetype 安装到本地仓库，即可在本地使用：
+
+```bash
+mvn archetype:generate \
+  -DarchetypeGroupId=com.example \     # 模板 groupId
+  -DarchetypeArtifactId=my-archetype \ # 模板 artifactId
+  -DarchetypeVersion=1.0-SNAPSHOT \    # 模板 version
+  -DgroupId=com.myexample \
+  -DartifactId=demo-project \
+  -Dversion=1.0.0 \
+  -DappName=MyApp \
+  -DinteractiveMode=false
+```
+
