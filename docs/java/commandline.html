@@ -125,7 +125,7 @@
                 <a href="jar.html">
             
                     
-                    JAR
+                    JAR 和 WAR
             
                 </a>
             
@@ -809,8 +809,26 @@
 <p>&#x7F29;&#x5199;&#x5F62;&#x5F0F; <code>java -cp</code></p>
 <p><code>java &lt;&#x5168;&#x9650;&#x5B9A;&#x540D;&gt;</code> &#x5F62;&#x5F0F;&#xFF1A;&#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E86; <code>CLASSPATH</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x7701;&#x7565; <code>-classpath</code>&#xFF0C;&#x5373;&#xFF0C;&#x6B64;&#x65F6;&#x5728; <code>CLASSPATH</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x7684; class &#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x914D;&#x7F6E; <code>CLASSPATH</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x662F;&#x5728;&#x9ED8;&#x8BA4;&#x7684;&#x5F53;&#x524D;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x4E2D;&#x67E5;&#x627E; class &#x6587;&#x4EF6;&#x3002;</p>
 </li>
+<li><p><code>jar -tf &lt;jar &#x6587;&#x4EF6;&#x8DEF;&#x5F84;&gt;</code></p>
+<p>&#x5217;&#x51FA; jar &#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-bash">jar -tf myapp.jar
+<span class="hljs-comment"># &#x8F93;&#x51FA;&#x793A;&#x4F8B;:</span>
+<span class="hljs-comment"># META-INF/</span>
+<span class="hljs-comment"># META-INF/MANIFEST.MF</span>
+<span class="hljs-comment"># com/</span>
+<span class="hljs-comment"># com/example/</span>
+<span class="hljs-comment"># com/example/MyClass.class</span>
+<span class="hljs-comment"># config.properties</span>
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E; war &#x6587;&#x4EF6;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x53EF;&#x4EE5;&#x7ED3;&#x5408; <code>grep</code> &#x4F7F;&#x7528;&#xFF0C;&#x6765;&#x68C0;&#x67E5; war &#x7684; lib &#x4E2D;&#x7684; log4j &#x5305;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x53EA;&#x5217;&#x51FA; WEB-INF/lib/ &#x76EE;&#x5F55;&#x7684;&#x5185;&#x5BB9;</span>
+jar tf target/cas-server.war WEB-INF/lib/ | grep <span class="hljs-built_in">log</span>4j
+</code></pre>
+</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li><h4 id="javac"><code>javac</code></h4>
 <p>&#x7F16;&#x8BD1;&#x5DE5;&#x5177;</p>
 <p>&#x4F8B;&#xFF1A;</p>
@@ -902,7 +920,7 @@ Hello Java
                 </a>
                 
                 
-                <a href="jar.html" class="navigation navigation-next " aria-label="Next page: JAR">
+                <a href="jar.html" class="navigation navigation-next " aria-label="Next page: JAR 和 WAR">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -913,7 +931,7 @@ Hello Java
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"命令行工具","level":"1.1.1","depth":2,"next":{"title":"JAR","level":"1.1.2","depth":2,"path":"java/jar.md","ref":"java/jar.md","articles":[]},"previous":{"title":"Java","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"命令行工具","level":"1.1.1","depth":2,"path":"java/commandline.md","ref":"java/commandline.md","articles":[]},{"title":"JAR","level":"1.1.2","depth":2,"path":"java/jar.md","ref":"java/jar.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/commandline.md","mtime":"2023-07-26T07:28:59.092Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-07-14T06:47:26.746Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"命令行工具","level":"1.1.1","depth":2,"next":{"title":"JAR 和 WAR","level":"1.1.2","depth":2,"path":"java/jar.md","ref":"java/jar.md","articles":[]},"previous":{"title":"Java","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"命令行工具","level":"1.1.1","depth":2,"path":"java/commandline.md","ref":"java/commandline.md","articles":[]},{"title":"JAR 和 WAR","level":"1.1.2","depth":2,"path":"java/jar.md","ref":"java/jar.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/commandline.md","mtime":"2026-01-14T07:48:10.896Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-14T08:28:23.071Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

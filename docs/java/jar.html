@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>JAR · GitBook</title>
+        <title>JAR 和 WAR · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -125,7 +125,7 @@
                 <a href="jar.html">
             
                     
-                    JAR
+                    JAR 和 WAR
             
                 </a>
             
@@ -782,7 +782,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >JAR</a>
+        <a href=".." >JAR 和 WAR</a>
     </h1>
 </div>
 
@@ -797,9 +797,105 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h4 id="jar">JAR</h4>
-<p>jar &#x6587;&#x4EF6;&#xFF08;Java Archive&#xFF0C;Java &#x5F52;&#x6863;&#xFF09;&#xFF0C;&#x4E00;&#x79CD;&#x8F6F;&#x4EF6;&#x5305;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x5F52;&#x6863;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5; ZIP &#x683C;&#x5F0F;&#x6784;&#x5EFA;&#xFF0C;&#x4EE5; <code>.jar</code> &#x4E3A;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#x3002;&#x7528;&#x4E8E;&#x805A;&#x5408;&#x5927;&#x91CF;&#x7684; Java class &#x6587;&#x4EF6;&#x3001;&#x76F8;&#x5173;&#x7684;&#x5143;&#x6570;&#x636E;&#x3001;&#x8D44;&#x6E90;&#xFF08;&#x6587;&#x672C;&#x3001;&#x56FE;&#x7247;&#xFF09;&#x7B49;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4EE5;&#x4FBF;&#x5F00;&#x53D1; Java &#x5E73;&#x53F0;&#x5E94;&#x7528;&#x8F6F;&#x4EF6;&#x6216;&#x5E93;&#x3002;</p>
-<p>jar &#x5305;&#x8FD8;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684; <code>/META-INF/MANIFEST.MF</code> &#x6587;&#x4EF6;&#xFF0C;<code>MANIFEST.MF</code>&#x662F;&#x7EAF;&#x6587;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A; <code>Main-Class</code> &#x548C;&#x5176;&#x5B83;&#x4FE1;&#x606F;&#x3002;</p>
+                                <h4 id="jar-&#x548C;-war">JAR &#x548C; WAR</h4>
+<h3 id="&#x4E00;&#x3001;&#x57FA;&#x672C;&#x5B9A;&#x4E49;">&#x4E00;&#x3001;&#x57FA;&#x672C;&#x5B9A;&#x4E49;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5168;&#x79F0;</th>
+<th>&#x7528;&#x9014;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JAR</strong></td>
+<td>Java Archive</td>
+<td>&#x7528;&#x4E8E;&#x6253;&#x5305; Java &#x7C7B;&#x3001;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x3001;&#x5143;&#x6570;&#x636E;&#x7B49;&#xFF0C;&#x901A;&#x5E38;&#x4F5C;&#x4E3A;<strong>&#x5E93;</strong>&#x6216;<strong>&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;</strong>&#x4F7F;&#x7528;</td>
+</tr>
+<tr>
+<td><strong>WAR</strong></td>
+<td>Web Application Archive</td>
+<td>&#x7528;&#x4E8E;&#x6253;&#x5305;&#x5B8C;&#x6574;&#x7684; <strong>Java Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;</strong>&#xFF0C;&#x4F9B; Web &#x5BB9;&#x5668;&#xFF08;&#x5982; Tomcat&#x3001;Jetty&#xFF09;&#x90E8;&#x7F72;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="&#x4E8C;&#x3001;&#x4E3B;&#x8981;&#x533A;&#x522B;">&#x4E8C;&#x3001;&#x4E3B;&#x8981;&#x533A;&#x522B;</h3>
+<h4 id="1-&#x7528;&#x9014;&#x4E0D;&#x540C;">1. <strong>&#x7528;&#x9014;&#x4E0D;&#x540C;</strong></h4>
+<ul>
+<li><strong>JAR</strong>&#xFF1A;<ul>
+<li>&#x7528;&#x4E8E;&#x666E;&#x901A; Java &#x5E94;&#x7528;&#xFF08;&#x5982;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x3001;&#x540E;&#x53F0;&#x670D;&#x52A1;&#xFF09;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x662F;&#xFF1A;<ul>
+<li><strong>&#x5E93; JAR</strong>&#xFF1A;&#x88AB;&#x5176;&#x4ED6;&#x9879;&#x76EE;&#x4F9D;&#x8D56;&#xFF08;&#x5982; <code>commons-lang3.jar</code>&#xFF09;&#x3002;</li>
+<li><strong>&#x53EF;&#x6267;&#x884C; JAR</strong>&#xFF1A;jar &#x5305;&#x8FD8;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684; <code>/META-INF/MANIFEST.MF</code> &#x6587;&#x4EF6;&#xFF0C;<code>MANIFEST.MF</code>&#x662F;&#x7EAF;&#x6587;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A; <code>Main-Class</code> &#x548C;&#x5176;&#x5B83;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x901A;&#x8FC7; <code>java -jar app.jar</code> &#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x3002;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>WAR</strong>&#xFF1A;<ul>
+<li>&#x4E13;&#x4E3A; <strong>Servlet/JSP Web &#x5E94;&#x7528;</strong>&#x8BBE;&#x8BA1;&#x3002;</li>
+<li>&#x5FC5;&#x987B;&#x90E8;&#x7F72;&#x5230; <strong>Web &#x5BB9;&#x5668;</strong>&#xFF08;&#x5982; Tomcat&#x3001;WildFly&#xFF09;&#x4E2D;&#x624D;&#x80FD;&#x8FD0;&#x884C;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x901A;&#x8FC7; <code>java -jar</code> &#x542F;&#x52A8;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-&#x5185;&#x90E8;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x4E0D;&#x540C;">2. <strong>&#x5185;&#x90E8;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x4E0D;&#x540C;</strong></h4>
+<h5 id="jar-&#x7ED3;&#x6784;&#xFF08;&#x5178;&#x578B;&#xFF09;&#xFF1A;">JAR &#x7ED3;&#x6784;&#xFF08;&#x5178;&#x578B;&#xFF09;&#xFF1A;</h5>
+<pre><code>my-app.jar
+&#x251C;&#x2500;&#x2500; com/
+&#x2502;   &#x2514;&#x2500;&#x2500; example/
+&#x2502;       &#x2514;&#x2500;&#x2500; MyClass.class
+&#x251C;&#x2500;&#x2500; META-INF/
+&#x2502;   &#x2514;&#x2500;&#x2500; MANIFEST.MF
+&#x2514;&#x2500;&#x2500; config.properties
+</code></pre><h5 id="war-&#x7ED3;&#x6784;&#xFF08;&#x6807;&#x51C6;&#xFF09;&#xFF1A;">WAR &#x7ED3;&#x6784;&#xFF08;&#x6807;&#x51C6;&#xFF09;&#xFF1A;</h5>
+<pre><code>my-webapp.war
+&#x251C;&#x2500;&#x2500; WEB-INF/
+&#x2502;   &#x251C;&#x2500;&#x2500; web.xml                 &#x2190; &#x90E8;&#x7F72;&#x63CF;&#x8FF0;&#x7B26;&#xFF08;&#x53EF;&#x9009;&#xFF0C;Servlet 3.0+ &#x53EF;&#x7701;&#x7565;&#xFF09;
+&#x2502;   &#x251C;&#x2500;&#x2500; classes/                &#x2190; &#x7F16;&#x8BD1;&#x540E;&#x7684; .class &#x6587;&#x4EF6;
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; com/example/MyServlet.class
+&#x2502;   &#x2514;&#x2500;&#x2500; lib/                    &#x2190; &#x4F9D;&#x8D56;&#x7684; JAR &#x5305;
+&#x2502;       &#x251C;&#x2500;&#x2500; gson.jar
+&#x2502;       &#x2514;&#x2500;&#x2500; mysql-connector.jar
+&#x251C;&#x2500;&#x2500; index.html
+&#x251C;&#x2500;&#x2500; css/
+&#x2514;&#x2500;&#x2500; js/
+</code></pre><blockquote>
+<p>&#x2705; &#x5173;&#x952E;&#x70B9;&#xFF1A;WAR &#x5305;&#x5FC5;&#x987B;&#x5305;&#x542B; <code>WEB-INF/</code> &#x76EE;&#x5F55;&#xFF0C;&#x5176;&#x4E2D; <code>classes/</code> &#x548C; <code>lib/</code> &#x662F; Web &#x5E94;&#x7528;&#x7C7B;&#x8DEF;&#x5F84;&#x7684;&#x6838;&#x5FC3;&#x3002;</p>
+</blockquote>
+<h4 id="3-&#x90E8;&#x7F72;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;">3. <strong>&#x90E8;&#x7F72;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;</strong></h4>
+<ul>
+<li><strong>JAR</strong>&#xFF1A;<ul>
+<li>&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#xFF1A;<code>java -jar myapp.jar</code></li>
+<li>&#x6216;&#x4F5C;&#x4E3A;&#x4F9D;&#x8D56;&#x5F15;&#x5165;&#x5176;&#x4ED6;&#x9879;&#x76EE;&#x3002;</li>
+</ul>
+</li>
+<li><strong>WAR</strong>&#xFF1A;<ul>
+<li>&#x5FC5;&#x987B;&#x90E8;&#x7F72;&#x5230; Web &#x5BB9;&#x5668;&#xFF08;&#x5982;&#x5C06; <code>.war</code> &#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230; Tomcat &#x7684; <code>webapps/</code> &#x76EE;&#x5F55;&#xFF09;&#x3002;</li>
+<li>&#x5BB9;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x89E3;&#x538B;&#x5E76;&#x542F;&#x52A8; Web &#x5E94;&#x7528;&#xFF08;&#x5982;&#x8BBF;&#x95EE; <code>http://localhost:8080/my-webapp</code>&#xFF09;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-&#x662F;&#x5426;&#x5305;&#x542B;-web-&#x7EC4;&#x4EF6;">4. <strong>&#x662F;&#x5426;&#x5305;&#x542B; Web &#x7EC4;&#x4EF6;</strong></h4>
+<ul>
+<li><strong>WAR</strong> &#x5305;&#x542B;&#xFF1A;<ul>
+<li>Servlet&#x3001;Filter&#x3001;Listener</li>
+<li>JSP&#x3001;HTML&#x3001;CSS&#x3001;JS &#x7B49;&#x9759;&#x6001;&#x8D44;&#x6E90;</li>
+<li><code>web.xml</code>&#xFF08;&#x4F20;&#x7EDF;&#x914D;&#x7F6E;&#xFF09;&#x6216;&#x57FA;&#x4E8E;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;</li>
+</ul>
+</li>
+<li><strong>JAR</strong> &#x4E00;&#x822C;&#x4E0D;&#x5305;&#x542B;&#x8FD9;&#x4E9B; Web &#x7279;&#x5B9A;&#x5185;&#x5BB9;&#xFF08;&#x9664;&#x975E;&#x662F; Spring Boot &#x7684;&#x201C;&#x53EF;&#x6267;&#x884C; JAR&#x201D;&#xFF0C;&#x89C1;&#x4E0B;&#x6587;&#xFF09;&#x3002;</li>
+</ul>
+<hr>
+<h3 id="&#x4E09;&#x3001;&#x7279;&#x6B8A;&#x8BF4;&#x660E;&#xFF1A;spring-boot-&#x7684;fat-jar">&#x4E09;&#x3001;&#x7279;&#x6B8A;&#x8BF4;&#x660E;&#xFF1A;Spring Boot &#x7684;&#x201C;Fat JAR&#x201D;</h3>
+<p>&#x73B0;&#x4EE3;&#x6846;&#x67B6;&#xFF08;&#x5982; Spring Boot&#xFF09;&#x6A21;&#x7CCA;&#x4E86; JAR &#x548C; WAR &#x7684;&#x754C;&#x9650;&#xFF1A;</p>
+<ul>
+<li><strong>Spring Boot &#x9ED8;&#x8BA4;&#x6253;&#x6210;&#x53EF;&#x6267;&#x884C; JAR</strong>&#xFF08;&#x5185;&#x5D4C; Tomcat/Jetty&#xFF09;&#xFF0C;&#x867D;&#x7136;&#x6269;&#x5C55;&#x540D;&#x662F; <code>.jar</code>&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x5305;&#x542B; Web &#x5E94;&#x7528;&#x6240;&#x9700;&#x7684;&#x4E00;&#x5207;&#x3002;</li>
+<li>&#x4E5F;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x4E3A;&#x751F;&#x6210; <strong>WAR &#x5305;</strong>&#xFF0C;&#x4EE5;&#x4FBF;&#x90E8;&#x7F72;&#x5230;&#x5916;&#x90E8; Web &#x5BB9;&#x5668;&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x26A0;&#xFE0F; &#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x79CD;&#x201C;&#x53EF;&#x6267;&#x884C; JAR&#x201D;&#x4E0D;&#x662F;&#x4F20;&#x7EDF;&#x610F;&#x4E49;&#x4E0A;&#x7684; JAR&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x79CD;&#x81EA;&#x5305;&#x542B;&#x7684;&#x90E8;&#x7F72;&#x683C;&#x5F0F;&#x3002;</p>
+</blockquote>
 
                                 
                                 </section>
@@ -843,7 +939,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JAR","level":"1.1.2","depth":2,"next":{"title":"Java API","level":"1.2","depth":1,"path":"java-api.md","ref":"java-api.md","articles":[{"title":"JDBC","level":"1.2.1","depth":2,"path":"java-api/jdbc.md","ref":"java-api/jdbc.md","articles":[]},{"title":"Runtime","level":"1.2.2","depth":2,"path":"java-api/runtime.md","ref":"java-api/runtime.md","articles":[]},{"title":"Try-With-Source","level":"1.2.3","depth":2,"path":"java-api/tws.md","ref":"java-api/tws.md","articles":[]},{"title":"ThreadLocal","level":"1.2.4","depth":2,"path":"java-api/threadlocal.md","ref":"java-api/threadlocal.md","articles":[]}]},"previous":{"title":"命令行工具","level":"1.1.1","depth":2,"path":"java/commandline.md","ref":"java/commandline.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/jar.md","mtime":"2022-08-24T07:45:57.207Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-07-14T06:47:26.746Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JAR 和 WAR","level":"1.1.2","depth":2,"next":{"title":"Java API","level":"1.2","depth":1,"path":"java-api.md","ref":"java-api.md","articles":[{"title":"JDBC","level":"1.2.1","depth":2,"path":"java-api/jdbc.md","ref":"java-api/jdbc.md","articles":[]},{"title":"Runtime","level":"1.2.2","depth":2,"path":"java-api/runtime.md","ref":"java-api/runtime.md","articles":[]},{"title":"Try-With-Source","level":"1.2.3","depth":2,"path":"java-api/tws.md","ref":"java-api/tws.md","articles":[]},{"title":"ThreadLocal","level":"1.2.4","depth":2,"path":"java-api/threadlocal.md","ref":"java-api/threadlocal.md","articles":[]}]},"previous":{"title":"命令行工具","level":"1.1.1","depth":2,"path":"java/commandline.md","ref":"java/commandline.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/jar.md","mtime":"2026-01-14T07:41:19.416Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-14T08:28:23.071Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

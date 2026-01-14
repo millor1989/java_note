@@ -13,6 +13,30 @@
     缩写形式 `java -cp`
 
     `java <全限定名>` 形式：如果配置了 `CLASSPATH` 环境变量，则可以省略 `-classpath`，即，此时在 `CLASSPATH` 环境变量中查找指定的 class 文件。如果没有配置 `CLASSPATH` 环境变量，则是在默认的当前所在目录中查找 class 文件。
+    
+  - `jar -tf <jar 文件路径>`
+
+    列出 jar 文件的内容
+
+    ```bash
+    jar -tf myapp.jar
+    # 输出示例:
+    # META-INF/
+    # META-INF/MANIFEST.MF
+    # com/
+    # com/example/
+    # com/example/MyClass.class
+    # config.properties
+    ```
+
+    也可以用于 war 文件。比如，可以结合 `grep` 使用，来检查 war 的 lib 中的 log4j 包：
+    
+    ```bash
+    # 只列出 WEB-INF/lib/ 目录的内容
+    jar tf target/cas-server.war WEB-INF/lib/ | grep log4j
+    ```
+    
+    
 
 - #### `javac`
 

@@ -2,7 +2,7 @@
 
 * [Java](README.md)
   * [命令行工具](java/commandline.md)
-  * [JAR](java/jar.md)
+  * [JAR 和 WAR](java/jar.md)
 * [Java API](java-api.md)
   * [JDBC](java-api/jdbc.md)
   * [Runtime](java-api/runtime.md)
